@@ -36,6 +36,6 @@ describe('persistence.cy.js', () => {
 
   // Test 2
   // Copy and paste the following into the terminal:
-  // npx cypress run --spec "cypress/e2e/integration/sold-tests/persistence.cy.js"
+  // npm run cy:persistence
 
 })

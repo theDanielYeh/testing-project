@@ -15,6 +15,7 @@
     "cy:open": "bin-up cypress open --project ../.. --env framework=react",
     "cy:run": "bin-up cypress run --project ../.. --env framework=react",
     "cy:run:record": "npm run cy:run -- --record",
+    "cy:persistence": "npx cypress run --spec 'cypress/e2e/integration/sold-tests/persistence.cy.js'",
     "test:gui": "bin-up run-p --race start cy:open",
     "test": "bin-up run-p --race start cy:run",
     "test:record": "bin-up run-p --race start cy:run:record",

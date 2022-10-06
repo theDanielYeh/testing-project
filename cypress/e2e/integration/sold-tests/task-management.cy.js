@@ -83,8 +83,15 @@ describe('task-management.cy.js', () => {
     cy.get('.todo-list > li')
       .last()
       .dblclick()
-      .find('label')
-      .siblings()
+
+    cy.get('.todo-list > li')
+      .last()
+      .find('.toggle')
+      .should('not.be.visible')
+
+    cy.get('.todo-list > li')
+      .last()
+      .find('.destroy')
       .should('not.be.visible')
   })
 
