@@ -50,9 +50,6 @@ describe('task-management.cy.js', () => {
 
   // Test 4
   it('Using setup method, mark one of the todos as completed, then assert “Clear Completed” is available', () => {
-    cy.get('button.clear-completed')
-      .should('not.exist')
-
     cy.get('.todo-list > li')
       .last()
       .find('input[type=checkbox]')
@@ -60,5 +57,24 @@ describe('task-management.cy.js', () => {
 
     cy.get('button.clear-completed')
       .should('exist')
+  })
+
+  // Test 5
+  it('Using setup method, mark one of the todos as completed, click Clear Completed button, assert that marked item no longer exists', () => {
+    cy.get('.todo-list > li')
+      .should('have.length', 2)
+      .and('contain', newItem[1])
+
+    cy.get('.todo-list > li')
+      .last()
+      .find('input[type=checkbox]')
+      .check()
+
+    cy.get('button.clear-completed')
+      .click()
+
+    cy.get('.todo-list > li')
+      .should('have.length', 1)
+      .and('not.contain', newItem[1])
   })
 })
