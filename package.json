@@ -1,38 +1,23 @@
 {
-  "name": "testing-project",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "classnames": "^2.1.5",
+    "cypress": "^10.9.0",
+    "director": "^1.2.0",
+    "react": "^0.13.3",
+    "todomvc-app-css": "^2.0.0",
+    "todomvc-common": "^1.0.1"
+  },
+  "devDependencies": {
+    "bin-up": "^1.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "cy:open": "bin-up cypress open --project ../.. --env framework=react",
+    "cy:run": "bin-up cypress run --project ../.. --env framework=react",
+    "cy:run:record": "npm run cy:run -- --record",
+    "test:gui": "bin-up run-p --race start cy:open",
+    "test": "bin-up run-p --race start cy:run",
+    "test:record": "bin-up run-p --race start cy:run:record",
+    "start": "react-scripts start"
   }
 }
