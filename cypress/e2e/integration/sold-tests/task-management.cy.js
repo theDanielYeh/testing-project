@@ -77,4 +77,14 @@ describe('task-management.cy.js', () => {
       .should('have.length', 1)
       .and('not.contain', newItem[1])
   })
+
+  // Test 6
+  it('Using setup method, should hide other controls when editing', () => {
+    cy.get('.todo-list > li')
+      .last()
+      .dblclick()
+      .find('label')
+      .siblings()
+      .should('not.be.visible')
+  })
 })
