@@ -76,4 +76,16 @@ describe('general.spec.js', () => {
     cy.get('.todo-list > li')
       .should('have.length', 3)
   })
+
+  // Test 7
+  it('Add todo item which has leading and trailing spaces, when created should trim', () => {
+    const newItem = '   Todo1    ';
+
+    cy.get('input.new-todo')
+      .type(`${newItem}{enter}`)
+
+    cy.get('.todo-list > li')
+      .last()
+      .should('have.text', newItem.trim())
+  })
 })
