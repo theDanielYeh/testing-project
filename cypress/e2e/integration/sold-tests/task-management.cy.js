@@ -5,7 +5,7 @@ describe('task-management.cy.js', () => {
   beforeEach(() => {
     cy.visit('/')
 
-    newItem.map(item => {
+    newItem.forEach(item => {
       cy.get('input.new-todo')
         .type(`${item}{enter}`)
 
