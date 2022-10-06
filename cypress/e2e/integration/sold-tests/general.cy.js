@@ -1,4 +1,4 @@
-describe('general.spec.js', () => {
+describe('general.cy.js', () => {
 
   beforeEach(() => {
     cy.visit('/')
