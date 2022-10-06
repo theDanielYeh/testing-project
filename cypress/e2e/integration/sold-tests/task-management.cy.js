@@ -1,6 +1,6 @@
 describe('task-management.cy.js', () => {
 
-  const newItem = ['Todo1', 'Todo2', 'Todo3'];
+  const newItem = ['Todo1', 'Todo2'];
 
   beforeEach(() => {
     cy.visit('/')
@@ -42,4 +42,9 @@ describe('task-management.cy.js', () => {
       .should('not.have.class', 'completed')
   })
 
+  // Test 3
+  it('Using setup method, then assert the “.todo-count” has text “2 items left”', () => {
+    cy.get('.todo-count')
+      .should('have.text', '2 items left')
+  })
 })
