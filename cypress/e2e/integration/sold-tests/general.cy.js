@@ -6,12 +6,6 @@ describe('general.cy.js', () => {
 
   // Test 1
   it('Initial page display, assert the main and footer sections should be hidden', () => {
-    // cy.get('.main')
-    //   .should('not.be.visible');
-
-    // cy.get('.footer')
-    //   .should('not.be.visible');
-
     cy.get('.main')
       .should('not.exist');
 

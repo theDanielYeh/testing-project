@@ -25,4 +25,21 @@ describe('task-management.cy.js', () => {
       .should('have.class', 'completed')
   })
 
+  // Test 2
+  it('Using setup method, then mark all as completed. After marked complete, toggle completed flag and assert the “completed” class has been removed', () => {
+    cy.get('.todo-list > li')
+      .find('input[type=checkbox]')
+      .check()
+
+    cy.get('.todo-list > li')
+      .should('have.class', 'completed')
+
+    cy.get('.todo-list > li')
+      .find('input[type=checkbox]')
+      .uncheck()
+
+    cy.get('.todo-list > li')
+      .should('not.have.class', 'completed')
+  })
+
 })
