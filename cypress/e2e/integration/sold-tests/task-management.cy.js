@@ -47,4 +47,18 @@ describe('task-management.cy.js', () => {
     cy.get('.todo-count')
       .should('have.text', '2 items left')
   })
+
+  // Test 4
+  it('Using setup method, mark one of the todos as completed, then assert “Clear Completed” is available', () => {
+    cy.get('button.clear-completed')
+      .should('not.exist')
+
+    cy.get('.todo-list > li')
+      .last()
+      .find('input[type=checkbox]')
+      .check()
+
+    cy.get('button.clear-completed')
+      .should('exist')
+  })
 })
