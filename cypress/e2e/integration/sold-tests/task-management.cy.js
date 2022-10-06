@@ -87,4 +87,24 @@ describe('task-management.cy.js', () => {
       .siblings()
       .should('not.be.visible')
   })
+
+  // Test 7
+  it('Using setup method, should highlight the currently applied filter (hint use .within method)', () => {
+    cy.get('.footer').within(($ul) => {
+      cy.get('a')
+        .contains('All')
+        .click()
+        .should('have.class', 'selected')
+
+      cy.get('a')
+        .contains('Active')
+        .click()
+        .should('have.class', 'selected')
+
+      cy.get('a')
+        .contains('Completed')
+        .click()
+        .should('have.class', 'selected')
+    })
+  })
 })
