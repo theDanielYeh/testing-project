@@ -59,4 +59,21 @@ describe('general.spec.js', () => {
       .last()
       .should('have.text', newItem)
   })
+
+  // Test 6
+  it('Add three todos and make sure they all exist, and assert there are 3 li items', () => {
+    const newItem = ['Todo1', 'Todo2', 'Todo3'];
+
+    newItem.map(item => {
+      cy.get('input.new-todo')
+        .type(`${item}{enter}`)
+
+      cy.get('.todo-list > li')
+        .last()
+        .should('have.text', item)
+    });
+
+    cy.get('.todo-list > li')
+      .should('have.length', 3)
+  })
 })
